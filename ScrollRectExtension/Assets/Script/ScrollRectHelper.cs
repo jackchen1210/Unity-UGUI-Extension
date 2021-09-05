@@ -19,11 +19,11 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
     [SerializeField] private bool enableTween;
     [SerializeField] private float tweenDuraction = 0.1f;
     [SerializeField] private Ease tweenEase;
+    private Tween tween;
 #endif
 
     private bool isDragging;
     private ScrollRect scrollRect;
-    private Tween tween;
     private RectTransform contentRect;
     private Content content;
 
