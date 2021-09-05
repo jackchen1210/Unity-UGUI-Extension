@@ -1,0 +1,15 @@
+{
+  "name": "com.jackchen.uiextension",
+  "version": "1.0.0",
+  "displayName": "UI Extension",
+  "description": "This is an UGUI extension package\n\n----------------------------\n\nUGUI\u64f4\u5145\u5957\u4ef6",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "author": {
+    "name": "Jack Chen",
+    "email": "jack3492843@gmail.com"
+  },
+  "type": "tool",
+  "unity": "2018.4"
+}

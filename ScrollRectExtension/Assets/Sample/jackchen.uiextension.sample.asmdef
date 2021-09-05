@@ -1,0 +1,16 @@
+{
+    "name": "jackchen.uiextension.sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:266728973d565bb4591aa1522d003ccc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
