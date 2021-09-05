@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+#if ENABLE_DOTWEEN
 using DG.Tweening;
+#endif
 using System;
 using UnityEngine.EventSystems;
 using System.Linq;
