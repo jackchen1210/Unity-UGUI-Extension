@@ -34,8 +34,17 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
         contentRect = scrollRect.content;
         scrollRect.onValueChanged.AddListener(OnValueChanged);
     }
-
+    
     private void OnValueChanged(Vector2 data)
+    {
+        if(scrollRect.velocity != Vector2.zero)
+        {
+            CheckGotoCloseElement();
+        }
+    }
+    
+
+    private void CheckGotoCloseElement()
     {
         if (!isCenterOnChild)
         {
@@ -47,7 +56,7 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
             return;
         }
 
-        if (scrollRect.velocity != Vector2.zero && CheckVelocity())
+        if (CheckVelocity())
         {
             scrollRect.velocity = Vector2.zero;
             var element = content.GetClosestElement(transform.position);
@@ -55,7 +64,7 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
             var pos = GetCenteredContentPosition(element);
 
 #if ENABLE_DOTWEEN
-            if (enableTween && !tween.IsActive())
+            if (enableTween &&(tween == null || !tween.IsActive()))
             {
                 tween = contentRect.transform
                     .DOMove(pos, tweenDuraction)
@@ -66,7 +75,6 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
             }
 #endif
             contentRect.transform.position = pos;
-            return;
         }
     }
 
@@ -133,6 +141,7 @@ public class ScrollRectHelper<T> : MonoBehaviour, IBeginDragHandler, IEndDragHan
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+        CheckGotoCloseElement();
     }
 
 
